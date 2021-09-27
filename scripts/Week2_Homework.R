@@ -19,6 +19,6 @@ plus10
 final = plus10[c(T,F)]
 final
 #
-final = final[seq(1,length(final),2)]
-final
+final.1 = plus10[seq(1,length(plus10),2)]
+final.1
 #
