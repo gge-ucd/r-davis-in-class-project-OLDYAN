@@ -6,6 +6,7 @@ surveys
 #q2
 surveys %>% filter(weight>30&weight<60) %>% head()
 #q3
+str(surveys)
 biggest_critters = surveys %>% filter(complete.cases(weight)) %>%
   group_by(species_id,sex) %>%
   summarise(weight_max=max(weight))
@@ -14,17 +15,42 @@ biggest_critters %>% arrange(desc(weight_max))
 #q4
 surveys %>%
   filter(is.na(weight)) %>%
+  group_by(year) %>%
+  tally() %>%
+  arrange(desc(n))
+surveys %>%
+  filter(is.na(weight)) %>%
+  group_by(month) %>%
+  tally() %>%
+  arrange(desc(n))
+surveys %>%
+  filter(is.na(weight)) %>%
+  group_by(day) %>%
+  tally() %>%
+  arrange(desc(n))
+surveys %>%
+  filter(is.na(weight)) %>%
+  group_by(hindfoot_length) %>%
+  tally() %>%
+  arrange(desc(n))
+surveys %>%
+  filter(is.na(weight)) %>%
+  group_by(genus) %>%
+  tally() %>%
+  arrange(desc(n))
+surveys %>%
+  filter(is.na(weight)) %>%
   group_by(species) %>%
   tally() %>%
   arrange(desc(n))
 surveys %>%
   filter(is.na(weight)) %>%
-  group_by(plot_id) %>%
+  group_by(taxa) %>%
   tally() %>%
   arrange(desc(n))
 surveys %>%
   filter(is.na(weight)) %>%
-  group_by(year) %>%
+  group_by(plot_type) %>%
   tally() %>%
   arrange(desc(n))
 #q5
