@@ -5,7 +5,8 @@ flights = read.csv("data/nyc_13_flights_small.csv")
 planes = read.csv("data/nyc_13_planes.csv")
 weather = read.csv("data/nyc_13_weather.csv")
 #Q.1
-dat.1 = left_join(flights,weather)
+dat = left_join(flights,weather)
+dat.1 = left_join(dat,planes)
 str(dat.1)
 plot_1 = ggplot(dat.1,aes(x=precip,y=dep_delay))+
   geom_point()+
@@ -65,3 +66,4 @@ plot_3_1 = ggplot(dat.3,aes(x=dep_delay_hrs,y=carrier,fill=carrier))+
 plot_3_1
 ggsave(path='plots',filename="plot_3_1.png")
 #
+
