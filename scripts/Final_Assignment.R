@@ -30,7 +30,7 @@ ggsave(path='plots',filename="plot_2.png")
 dat.2 = dat.1 %>%
   mutate(date=ymd(paste0(year,"-",month,"-",day))) %>%
   filter(complete.cases(temp)) %>%
-  group_by(date,temp) %>%
+  group_by(date) %>%
   mutate(mean_temp=mean(temp)) %>%
   select(origin,date,mean_temp)
 write.csv(dat.2,"data/mean_temp_by_origin.csv")
